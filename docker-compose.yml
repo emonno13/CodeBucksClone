@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  agency:
+    restart: always
+    container_name: agency_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 3001:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
